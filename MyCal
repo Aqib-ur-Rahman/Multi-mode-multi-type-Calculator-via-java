@@ -1,0 +1,2479 @@
+import javax.swing.*;
+import java.awt.*;       //libraries to be used to build the calculator
+import java.awt.event.ActionEvent;     
+import java.awt.event.ActionListener;
+class MyFrame extends JFrame implements ActionListener {        //child class of JFrame class along with addition of action listener 
+
+Container c;        // container to get the frame area and add the contents in the frame area
+
+JLabel num1= new JLabel ();
+Font num1font= new Font("calibri", Font.BOLD, 17);
+
+JTextField num1text= new JTextField();
+Font num1textfont = new Font("calibri", Font.PLAIN, 17);
+
+JLabel num2= new JLabel ();
+Font num2font= new Font("calibri", Font.BOLD, 17);
+
+JTextField num2text= new JTextField();
+Font num2textfont = new Font("calibri", Font.PLAIN, 17);
+
+JButton compute= new JButton();
+Font computefont = new Font("calibri", Font.BOLD, 17);
+
+JLabel theresultis= new JLabel("The Required Result is");
+Font resultfont= new Font("calibri", Font.BOLD | Font.PLAIN, 17);
+
+JLabel calculatedresult= new JLabel();
+Font calculatedtresultfont=new Font("calibri",Font.BOLD, 17);
+
+JLabel mode = new JLabel();
+Font modelabelfont= new Font("calibri", Font.BOLD, 15);
+
+JLabel type = new JLabel();
+Font typelabelfont= new Font("calibri", Font.BOLD, 15);
+
+JLabel operation = new JLabel();
+Font operationlabelfont= new Font("calibri", Font.BOLD, 10);
+
+JCheckBox decimal =new JCheckBox();
+Font decimalbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox binary =new JCheckBox();
+Font binarybuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox hex =new JCheckBox();
+Font hexbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox octal =new JCheckBox();
+Font octalbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox bytebtn =new JCheckBox();
+Font bytebuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox shortbtn =new JCheckBox();
+Font shortbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox intbtn =new JCheckBox();
+Font intbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox longbtn =new JCheckBox();
+Font longbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox doublebtn =new JCheckBox();
+Font doublebuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox addbtn =new JCheckBox();
+Font addbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox subbtn =new JCheckBox();
+Font subbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox mulbtn =new JCheckBox();
+Font mulbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox divbtn =new JCheckBox();
+Font divbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox convbtn =new JCheckBox();
+Font convbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox convbtn1 =new JCheckBox();
+Font convbutton1font= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox modbtn =new JCheckBox();
+Font modbtnfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox perbtn =new JCheckBox();
+Font perbtnfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox expbtn =new JCheckBox();
+Font expbtnfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox logbtn =new JCheckBox();
+Font logbtnfont= new Font("calibri", Font.PLAIN, 17);
+
+JLabel trig = new JLabel();
+Font triglabelfont= new Font("calibri", Font.BOLD, 15);
+
+JCheckBox sinbtn =new JCheckBox();
+Font sinbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox cosbtn =new JCheckBox();
+Font cosbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox tanbtn =new JCheckBox();
+Font tanbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox cotbtn =new JCheckBox();
+Font cotbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox secbtn =new JCheckBox();
+Font secbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox cosecbtn =new JCheckBox();
+Font cosecbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox sinhbtn =new JCheckBox();
+Font sinhbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox coshbtn =new JCheckBox();
+Font coshbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox tanhbtn =new JCheckBox();
+Font tanhbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox cothbtn =new JCheckBox();
+Font cothbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox sechbtn =new JCheckBox();
+Font sechbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+JCheckBox cosechbtn =new JCheckBox();
+Font cosechbuttonfont= new Font("calibri", Font.PLAIN, 17);
+
+
+MyFrame(){          //constructor
+           // things to be added in the frame -+
+c= this.getContentPane();
+c.setBackground(Color.WHITE);
+c.setLayout(null);
+
+num1.setText("VALUE 1:");
+num1.setBounds(180, 30, 150, 50);
+num1.setFont(num1font);
+c.add(num1);
+
+num1text.setBounds(317, 41, 170, 30);
+num1text.setBackground(Color.LIGHT_GRAY);
+num1text.setFont(num1textfont);
+c.add(num1text);
+
+num2.setText("VALUE 2:");
+num2.setBounds(180, 90, 150, 50);
+num2.setFont(num2font);
+c.add(num2);
+
+num2text.setBounds(317, 100, 170, 30);
+num2text.setBackground(Color.LIGHT_GRAY);
+num2text.setFont(num1textfont);
+num2text.addActionListener(this);
+c.add(num2text);
+
+compute.setBounds(280, 150, 150 , 40);
+compute.setBackground(Color.LIGHT_GRAY);
+compute.setText("Calculate");
+compute.setFont(computefont);
+c.add(compute);
+compute.addActionListener(this); 
+
+theresultis.setText("The Required Result is: ");
+theresultis.setBounds(180, 210, 170, 50);
+theresultis.setFont(resultfont);
+c.add(theresultis);
+
+calculatedresult.setText("Result");
+calculatedresult.setBounds(430,210,170,50);
+calculatedresult.setFont(calculatedtresultfont);
+c.add(calculatedresult);
+
+mode.setText("NUM SYS");
+mode.setBounds(70, 260, 100, 50);
+mode.setFont(modelabelfont);
+c.add(mode);
+
+type.setText("DATATYPE");
+type.setBounds(250, 260, 100, 50);
+type.setFont(typelabelfont);
+c.add(type);
+
+operation.setText("OPERATION");
+operation.setBounds(470, 260, 117, 50);
+operation.setFont(typelabelfont);
+c.add(operation);
+
+decimal.setBounds(40, 300, 100, 50);
+decimal.setText("Decimal");
+decimal.setFont(decimalbuttonfont);
+decimal.setBackground(Color.WHITE);
+c.add(decimal);
+decimal.addActionListener(this);
+
+binary.setBounds(40, 340, 100, 50);
+binary.setText("Binary");
+binary.setFont(binarybuttonfont);
+binary.setBackground(Color.WHITE);
+binary.addActionListener(this);
+c.add(binary);
+
+
+hex.setBounds(40, 380, 117, 50);
+hex.setText("Hex Dec");
+hex.setFont(hexbuttonfont);
+hex.setBackground(Color.WHITE);
+hex.addActionListener(this);
+c.add(hex);
+
+octal.setBounds(40, 417, 117, 50);
+octal.setText("Octal");
+octal.setFont(octalbuttonfont);
+octal.setBackground(Color.WHITE);
+octal.addActionListener(this);
+c.add(octal);
+
+ButtonGroup ModeGroup = new ButtonGroup();
+ModeGroup.add(decimal);
+ModeGroup.add(binary);
+ModeGroup.add(hex);
+ModeGroup.add(octal);
+
+decimal.setSelected(true);
+
+bytebtn.setBounds(235, 300, 100, 50);
+bytebtn.setText("Byte");
+bytebtn.setFont(bytebuttonfont);
+bytebtn.setBackground(Color.WHITE);
+bytebtn.addActionListener(this);
+bytebtn.addActionListener(this);
+c.add(bytebtn);
+
+shortbtn.setBounds(235, 340, 100, 50);
+shortbtn.setText("Short");
+shortbtn.setFont(binarybuttonfont);
+shortbtn.setBackground(Color.WHITE);
+shortbtn.addActionListener(this);
+c.add(shortbtn);
+
+intbtn.setBounds(235, 380, 100, 50);
+intbtn.setText("Int");
+intbtn.setFont(intbuttonfont);
+intbtn.setBackground(Color.WHITE);
+intbtn.addActionListener(this);
+c.add(intbtn);
+
+longbtn.setBounds(235, 417, 100, 50);
+longbtn.setText("Long");
+longbtn.setFont(longbuttonfont);
+longbtn.setBackground(Color.WHITE);
+longbtn.addActionListener(this);
+c.add(longbtn);
+
+doublebtn.setBounds(235, 460, 100, 50);
+doublebtn.setText("Double");
+doublebtn.setFont(doublebuttonfont);
+doublebtn.setBackground(Color.WHITE);
+doublebtn.addActionListener(this);
+c.add(doublebtn);
+
+ButtonGroup TypeGroup = new ButtonGroup();
+TypeGroup.add(bytebtn);
+TypeGroup.add(shortbtn);
+TypeGroup.add(intbtn);
+TypeGroup.add(longbtn);
+TypeGroup.add(doublebtn);
+
+intbtn.setSelected(true);
+
+addbtn.setBounds(400, 300, 100, 50);
+addbtn.setText("Addition");
+addbtn.setFont(addbuttonfont);
+addbtn.setBackground(Color.WHITE);
+addbtn.addActionListener(this);
+c.add(addbtn);
+
+
+subbtn.setBounds(400, 340, 100, 50);
+subbtn.setText("Subtract");
+subbtn.setFont(subbuttonfont);
+subbtn.setBackground(Color.WHITE);
+subbtn.addActionListener(this);
+c.add(subbtn);
+
+mulbtn.setBounds(400, 380, 100, 50);
+mulbtn.setText("Multiply");
+mulbtn.setFont(mulbuttonfont);
+mulbtn.setBackground(Color.WHITE);
+mulbtn.addActionListener(this);
+c.add(mulbtn);
+
+divbtn.setBounds(400, 417, 100, 50);
+divbtn.setText("Divide");
+divbtn.setFont(divbuttonfont);
+divbtn.setBackground(Color.WHITE);
+divbtn.addActionListener(this);
+c.add(divbtn);
+
+convbtn.setBounds(400, 460,140,50 );
+convbtn.setText("Deg to Rad");
+convbtn.setFont(convbuttonfont);
+convbtn.setBackground(Color.WHITE);
+convbtn.addActionListener(this);
+convbtn.setEnabled(false);
+c.add(convbtn);
+
+convbtn1.setBounds(540, 300,140,50 );
+convbtn1.setText("Rad To Deg");
+convbtn1.setFont(convbutton1font);
+convbtn1.setBackground(Color.WHITE);
+convbtn1.setEnabled(false);
+convbtn1.addActionListener(this);
+
+c.add(convbtn1);
+
+modbtn.setBounds(540, 340, 100, 50);
+modbtn.setText("Mod");
+modbtn.setFont(modbtnfont);
+modbtn.setBackground(Color.WHITE);
+modbtn.addActionListener(this);
+modbtn.setEnabled(false);
+c.add(modbtn);
+
+perbtn.setBounds(540, 380, 150, 50);
+perbtn.setText("Percentage");
+perbtn.setFont(perbtnfont);
+perbtn.setBackground(Color.WHITE);
+perbtn.addActionListener(this);
+c.add(perbtn);
+
+expbtn.setBounds(540, 417, 150, 50);
+expbtn.setText("Exponent");
+expbtn.setFont(expbtnfont);
+expbtn.setBackground(Color.WHITE);
+expbtn.addActionListener(this);
+expbtn.setEnabled(false);
+c.add(expbtn);
+
+logbtn.setBounds(540, 460,140,50 );
+logbtn.setText("Log");
+logbtn.setFont(logbtnfont);
+logbtn.setBackground(Color.WHITE);
+logbtn.addActionListener(this);
+logbtn.setEnabled(false);
+c.add(logbtn);
+
+
+trig.setText("TRIG OPS");
+trig.setBounds(310, 500, 300, 50);
+trig.setFont(triglabelfont);
+c.add(trig);
+
+ButtonGroup OpGroup= new ButtonGroup();
+OpGroup.add(addbtn);
+OpGroup.add(subbtn);
+OpGroup.add(mulbtn);
+OpGroup.add(divbtn);
+OpGroup.add(convbtn);
+OpGroup.add(convbtn1);
+OpGroup.add(modbtn);
+OpGroup.add(expbtn);
+OpGroup.add(perbtn);
+OpGroup.add(logbtn);
+OpGroup.add(cosbtn);
+OpGroup.add(sinbtn);
+OpGroup.add(tanbtn);
+OpGroup.add(cotbtn);
+OpGroup.add(secbtn);
+OpGroup.add(cosecbtn);
+OpGroup.add(coshbtn);
+OpGroup.add(sinhbtn);
+OpGroup.add(tanhbtn);
+OpGroup.add(cothbtn);
+OpGroup.add(sechbtn);
+OpGroup.add(cosechbtn);
+
+
+sinbtn.setBounds(170, 540, 80, 50);
+sinbtn.setText("sin");
+sinbtn.setFont(sinbuttonfont);
+sinbtn.setBackground(Color.WHITE);
+sinbtn.addActionListener(this);
+sinbtn.setEnabled(false);
+c.add(sinbtn);
+
+
+
+cosbtn.setBounds(60, 540, 80, 50);
+cosbtn.setText("cos");
+cosbtn.setFont(cosbuttonfont);
+cosbtn.setBackground(Color.WHITE);
+cosbtn.addActionListener(this);
+cosbtn.setEnabled(false);
+c.add(cosbtn);
+
+tanbtn.setBounds(270, 540, 80, 50);
+tanbtn.setText("tan");
+tanbtn.setFont(tanbuttonfont);
+tanbtn.setBackground(Color.WHITE);
+tanbtn.addActionListener(this);
+tanbtn.setEnabled(false);
+c.add(tanbtn);
+
+cotbtn.setBounds(370, 540, 80, 50);
+cotbtn.setText("cot");
+cotbtn.setFont(cotbuttonfont);
+cotbtn.setBackground(Color.WHITE);
+cotbtn.addActionListener(this);
+cotbtn.setEnabled(false);
+c.add(cotbtn);
+
+secbtn.setBounds(470, 540, 80, 50);
+secbtn.setText("sec");
+secbtn.setFont(secbuttonfont);
+secbtn.setBackground(Color.WHITE);
+secbtn.addActionListener(this);
+secbtn.setEnabled(false);
+c.add(secbtn);
+
+cosecbtn.setBounds(570, 540, 80, 50);
+cosecbtn.setText("cosec");
+cosecbtn.setFont(secbuttonfont);
+cosecbtn.setBackground(Color.WHITE);
+cosecbtn.addActionListener(this);
+cosecbtn.setEnabled(false);
+c.add(cosecbtn);
+
+
+sinhbtn.setBounds(170, 580, 80, 50);
+sinhbtn.setText("sinh");
+sinhbtn.setFont(sinbuttonfont);
+sinhbtn.setBackground(Color.WHITE);
+sinhbtn.addActionListener(this);
+sinhbtn.setEnabled(false);
+c.add(sinhbtn);
+
+
+coshbtn.setBounds(60, 580, 80, 50);
+coshbtn.setText("cosh");
+coshbtn.setFont(cosbuttonfont);
+coshbtn.setBackground(Color.WHITE);
+coshbtn.addActionListener(this);
+coshbtn.setEnabled(false);
+c.add(coshbtn);
+
+
+tanhbtn.setBounds(270, 580, 80, 50);
+tanhbtn.setText("tanh");
+tanhbtn.setFont(tanbuttonfont);
+tanhbtn.setBackground(Color.WHITE);
+tanhbtn.addActionListener(this);
+tanhbtn.setEnabled(false);
+c.add(tanhbtn);
+
+cothbtn.setBounds(370, 580, 80, 50);
+cothbtn.setText("coth");
+cothbtn.setFont(cotbuttonfont);
+cothbtn.setBackground(Color.WHITE);
+cothbtn.addActionListener(this);
+cothbtn.setEnabled(false);
+c.add(cothbtn);
+
+
+sechbtn.setBounds(470, 580, 80, 50);
+sechbtn.setText("sech");
+sechbtn.setFont(secbuttonfont);
+sechbtn.setBackground(Color.WHITE);
+sechbtn.addActionListener(this);
+sechbtn.setEnabled(false);
+c.add(sechbtn);
+
+cosechbtn.setBounds(570, 580, 100, 50);
+cosechbtn.setText("cosech");
+cosechbtn.setFont(secbuttonfont);
+cosechbtn.setBackground(Color.WHITE);
+cosechbtn.addActionListener(this);
+cosechbtn.setEnabled(false);
+c.add(cosechbtn);
+
+
+
+
+
+
+}
+public void actionPerformed(ActionEvent e){
+
+try{
+    
+
+if (decimal.isSelected()){
+doublebtn.setEnabled(true);
+bytebtn.setEnabled(true);
+shortbtn.setEnabled(true);
+longbtn.setEnabled(true);
+perbtn.setEnabled(true);
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a+b;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a-b;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a*b;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a/b;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (modbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a%b;
+                calculatedresult.setText(String.valueOf(c)); 
+
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (perbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= (a*100)/b;
+                calculatedresult.setText(String.valueOf(c+ "%")); 
+
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (bytebtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                byte a,b,c;
+                a= Byte.parseByte(num1text.getText());
+                b= Byte.parseByte(num2text.getText());
+                c= (byte) (a+b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (bytebtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                byte a,b,c;
+                a= Byte.parseByte(num1text.getText());
+                b= Byte.parseByte(num2text.getText());
+                c= (byte) (a-b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (bytebtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                byte a,b,c;
+                a= Byte.parseByte(num1text.getText());
+                b= Byte.parseByte(num2text.getText());
+                c= (byte) (a*b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (bytebtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                byte a,b,c;
+                a= Byte.parseByte(num1text.getText());
+                b= Byte.parseByte(num2text.getText());
+                c= (byte) (a/b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (modbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a%b;
+                calculatedresult.setText(String.valueOf(c)); 
+
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (perbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= (a*100)/b;
+                calculatedresult.setText(String.valueOf(c+ "%")); 
+
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (shortbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                short a,b,c;
+                a= Short.parseShort(num1text.getText());
+                b= Short.parseShort(num2text.getText());
+                c= (short) (a+b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (shortbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                short a,b,c;
+                a= Short.parseShort(num1text.getText());
+                b= Short.parseShort(num2text.getText());
+                c= (short) (a-b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (shortbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                short a,b,c;
+                a= Short.parseShort(num1text.getText());
+                b= Short.parseShort(num2text.getText());
+                c= (short) (a*b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (shortbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                short a,b,c;
+                a= Short.parseShort(num1text.getText());
+                b= Short.parseShort(num2text.getText());
+                c= (short) (a/b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (longbtn.isSelected()){
+
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                long a,b,c;
+                a= Long.parseLong(num1text.getText());
+                b= Long.parseLong(num2text.getText());
+                c= (long) (a+b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (longbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                long a,b,c;
+                a= Long.parseLong(num1text.getText());
+                b= Long.parseLong(num2text.getText());
+                c= (long) (a-b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (longbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                long a,b,c;
+                a= Long.parseLong(num1text.getText());
+                b= Long.parseLong(num2text.getText());
+                c= (long) (a*b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (longbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                long a,b,c;
+                a= Long.parseLong(num1text.getText());
+                b= Long.parseLong(num2text.getText());
+                c= (long) (a/b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (modbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= a%b;
+                calculatedresult.setText(String.valueOf(c)); 
+
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+        if (perbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= (a*100)/b;
+                calculatedresult.setText(String.valueOf(c+ "%")); 
+
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= (double) (a+b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= (double) (a-b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= (double) (a*b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= (double) (a/b);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+ if (cosbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.cos(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+  
+
+if (decimal.isSelected()){
+
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+   if (sinbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.sin(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+ 
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+ if (tanbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.tan(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+   
+
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (cotbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c, b,d;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.cos(Math.toRadians(a));
+                d= Math.sin(Math.toRadians(a));
+                c= b/d;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (secbtn.isSelected()){
+
+            if (e.getSource()==compute){
+                double a,c, b;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.cos(Math.toRadians(a));
+             
+                c= 1/b ;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (cosecbtn.isSelected()){
+
+            if (e.getSource()==compute){
+                double a,c, b;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.sin(Math.toRadians(a));
+             
+                c= 1/b ;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (coshbtn.isSelected()){
+
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.cosh(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (sinhbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.sinh(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (tanhbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c;
+                a= Double.parseDouble(num1text.getText());
+                c= Math.tanh(Math.toRadians(a));
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (cothbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,c, b,d;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.cosh(Math.toRadians(a));
+                d= Math.sinh(Math.toRadians(a));
+                c= b/d;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (sechbtn.isSelected()){
+
+            if (e.getSource()==compute){
+                double a,c, b;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.cosh(Math.toRadians(a));
+             
+                c= 1/b ;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+if (cosechbtn.isSelected()){
+
+            if (e.getSource()==compute){
+                double a,c, b;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.sinh(Math.toRadians(a));
+             
+                c= 1/b ;
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+    
+
+
+
+
+
+
+if (decimal.isSelected()){
+
+if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (convbtn.isSelected()){
+            if (e.getSource()==compute){
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                
+                c= Math.toRadians(a);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+    
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (convbtn1.isSelected()){
+            if (e.getSource()==compute){
+                double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                
+                c= Math.toDegrees(a);
+                calculatedresult.setText(String.valueOf(c)); 
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (modbtn.isSelected()){
+            if (e.getSource()==compute){
+               double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= a%b;
+                calculatedresult.setText(String.valueOf(c)); 
+
+}
+}
+}
+}
+
+
+
+
+
+if (decimal.isSelected()){
+    if (intbtn.isSelected()){
+        if (perbtn.isSelected()){
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText());
+                b= Integer.parseInt(num2text.getText());
+                c= (a*100)/b;
+                calculatedresult.setText(String.valueOf(c+ "%")); 
+
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (perbtn.isSelected()){
+            if (e.getSource()==compute){
+               double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Double.parseDouble(num2text.getText());
+                c= (a*100)/b;
+                calculatedresult.setText(String.valueOf(c+ "%")); 
+
+}
+}
+}
+}
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (logbtn.isSelected()){
+            if (e.getSource()==compute){
+               double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.log10(a);
+                calculatedresult.setText(String.valueOf(b)); 
+
+}
+}
+}
+}
+
+
+if (decimal.isSelected()){
+    if (doublebtn.isSelected()){
+convbtn.setEnabled(true);
+convbtn1.setEnabled(true);
+modbtn.setEnabled(true);
+expbtn.setEnabled(true);
+logbtn.setEnabled(true);
+sinbtn.setEnabled(true);
+cosbtn.setEnabled(true);
+tanbtn.setEnabled(true);
+cotbtn.setEnabled(true);
+secbtn.setEnabled(true);
+cosecbtn.setEnabled(true);
+sinhbtn.setEnabled(true);
+coshbtn.setEnabled(true);
+tanhbtn.setEnabled(true);
+cothbtn.setEnabled(true);
+sechbtn.setEnabled(true);
+cosechbtn.setEnabled(true);
+        if (expbtn.isSelected()){
+            if (e.getSource()==compute){
+               double a,b,c;
+                a= Double.parseDouble(num1text.getText());
+                b= Math.exp(a);
+                calculatedresult.setText(String.valueOf(b)); 
+
+}
+}
+}
+}
+
+if (binary.isSelected()){
+    if (intbtn.isSelected()){
+
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+
+
+            if (e.getSource()==compute){
+               int a,b,c;
+                a= Integer.parseInt(num1text.getText(), 2);
+                b= Integer.parseInt(num2text.getText(), 2);
+c=a+b;
+                String d= Integer.toBinaryString(c);
+                calculatedresult.setText(String.valueOf(d)); 
+
+}
+}
+}
+
+if (binary.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),2);
+                b= Integer.parseInt(num2text.getText(), 2);
+                c= a+b;
+                String d= Integer.toBinaryString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (binary.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),2);
+                b= Integer.parseInt(num2text.getText(), 2);
+                c= a-b;
+                String d= Integer.toBinaryString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+
+if (binary.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),2);
+                b= Integer.parseInt(num2text.getText(), 2);
+                c= a*b;
+                String d= Integer.toBinaryString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (binary.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),2);
+                b= Integer.parseInt(num2text.getText(), 2);
+                c= a/b;
+                String d= Integer.toBinaryString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (octal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),8);
+                b= Integer.parseInt(num2text.getText(), 8);
+                c= a+b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (octal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),8);
+                b= Integer.parseInt(num2text.getText(), 8);
+                c= a-b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (octal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),8);
+                b= Integer.parseInt(num2text.getText(), 8);
+                c= a*b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+
+if (octal.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),8);
+                b= Integer.parseInt(num2text.getText(), 8);
+                c= a/b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (hex.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (addbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),16);
+                b= Integer.parseInt(num2text.getText(), 16);
+                c= a+b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+
+if (hex.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (subbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),16);
+                b= Integer.parseInt(num2text.getText(), 16);
+                c= a-b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+if (hex.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (mulbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),16);
+                b= Integer.parseInt(num2text.getText(), 16);
+                c= a*b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+
+if (hex.isSelected()){
+    if (intbtn.isSelected()){
+convbtn.setEnabled(false);
+convbtn1.setEnabled(false);
+modbtn.setEnabled(false);
+expbtn.setEnabled(false);
+logbtn.setEnabled(false);
+sinbtn.setEnabled(false);
+cosbtn.setEnabled(false);
+tanbtn.setEnabled(false);
+cotbtn.setEnabled(false);
+secbtn.setEnabled(false);
+cosecbtn.setEnabled(false);
+sinhbtn.setEnabled(false);
+coshbtn.setEnabled(false);
+tanhbtn.setEnabled(false);
+cothbtn.setEnabled(false);
+sechbtn.setEnabled(false);
+cosechbtn.setEnabled(false);
+bytebtn.setEnabled(false);
+shortbtn.setEnabled(false);
+longbtn.setEnabled(false);
+doublebtn.setEnabled(false);
+perbtn.setEnabled(false);
+decimal.setEnabled(true);
+        if (divbtn.isSelected()){
+            if (e.getSource()==compute){
+                int a,b,c;
+                a= Integer.parseInt(num1text.getText(),16);
+                b= Integer.parseInt(num2text.getText(), 16);
+                c= a/b;
+                String d= Integer.toOctalString(c);
+                
+                calculatedresult.setText(String.valueOf(d)); 
+}
+}
+}
+}
+
+
+
+
+}
+
+
+
+catch (Exception a){
+Component frame = null;
+JOptionPane.showMessageDialog(frame,"Entered Data Does Not Match With Selected Datatype", "Error", JOptionPane.ERROR_MESSAGE);
+}
+}
+}
+public class MyCal {
+public static void main (String [] args){
+MyFrame frame = new MyFrame();           // addition of frame using the parent class JFrame
+frame.setVisible(true); 
+frame.setBounds(100, 100, 730, 700);
+frame.setTitle("Calculator");
+frame.setDefaultCloseOperation(MyFrame.EXIT_ON_CLOSE);
+frame.setLocationRelativeTo(null);
+frame.setResizable(false);
+}
+   
+}
